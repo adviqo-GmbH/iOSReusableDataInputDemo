@@ -8,20 +8,46 @@
 
 /* Begin PBXBuildFile section */
 		093F811921F0ACC6000D0525 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093F811821F0ACC6000D0525 /* AppDelegate.swift */; };
-		093F811B21F0ACC6000D0525 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093F811A21F0ACC6000D0525 /* ViewController.swift */; };
+		093F811B21F0ACC6000D0525 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093F811A21F0ACC6000D0525 /* HomeViewController.swift */; };
 		093F811E21F0ACC6000D0525 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 093F811C21F0ACC6000D0525 /* Main.storyboard */; };
 		093F812021F0ACC8000D0525 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 093F811F21F0ACC8000D0525 /* Assets.xcassets */; };
 		093F812321F0ACC8000D0525 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 093F812121F0ACC8000D0525 /* LaunchScreen.storyboard */; };
+		0958C77021F5EC5500D864C7 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0958C76F21F5EC5500D864C7 /* BaseViewController.swift */; };
+		0958C77221F5F43400D864C7 /* InputView+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0958C77121F5F43400D864C7 /* InputView+Appearance.swift */; };
+		0958C77421F5F5F800D864C7 /* AppearanceDefines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0958C77321F5F5F800D864C7 /* AppearanceDefines.swift */; };
+		0958C77721F5F99600D864C7 /* FontScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0958C77621F5F99600D864C7 /* FontScheme.swift */; };
+		0958C77921F601B000D864C7 /* DesignableTextInput+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0958C77821F601B000D864C7 /* DesignableTextInput+Appearance.swift */; };
+		0958C77E21F61C4100D864C7 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0958C77D21F61C4100D864C7 /* HomeViewModel.swift */; };
+		0958C78021F61E1B00D864C7 /* DisplayedSectionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0958C77F21F61E1B00D864C7 /* DisplayedSectionProtocol.swift */; };
+		0958C78221F61E8900D864C7 /* DisplayedItemProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0958C78121F61E8900D864C7 /* DisplayedItemProtocol.swift */; };
+		0958C78421F61ED400D864C7 /* DisplayedItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0958C78321F61ED400D864C7 /* DisplayedItemType.swift */; };
+		0969A7F021F73D4100845CBD /* DesignablePicker+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969A7EF21F73D4100845CBD /* DesignablePicker+Appearance.swift */; };
+		0969A7F221F740BF00845CBD /* DesignableDatePicker+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969A7F121F740BF00845CBD /* DesignableDatePicker+Appearance.swift */; };
+		A0E705C1CE87CB81BFE88439 /* libPods-ReusableDataInputDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B07D07826D226B8DD07F8EE /* libPods-ReusableDataInputDemo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		093F811521F0ACC6000D0525 /* ReusableDataInputDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReusableDataInputDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		093F811821F0ACC6000D0525 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		093F811A21F0ACC6000D0525 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		093F811A21F0ACC6000D0525 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		093F811D21F0ACC6000D0525 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		093F811F21F0ACC8000D0525 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		093F812221F0ACC8000D0525 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		093F812421F0ACC8000D0525 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0958C76F21F5EC5500D864C7 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		0958C77121F5F43400D864C7 /* InputView+Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InputView+Appearance.swift"; sourceTree = "<group>"; };
+		0958C77321F5F5F800D864C7 /* AppearanceDefines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceDefines.swift; sourceTree = "<group>"; };
+		0958C77621F5F99600D864C7 /* FontScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontScheme.swift; sourceTree = "<group>"; };
+		0958C77821F601B000D864C7 /* DesignableTextInput+Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DesignableTextInput+Appearance.swift"; sourceTree = "<group>"; };
+		0958C77D21F61C4100D864C7 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		0958C77F21F61E1B00D864C7 /* DisplayedSectionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayedSectionProtocol.swift; sourceTree = "<group>"; };
+		0958C78121F61E8900D864C7 /* DisplayedItemProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayedItemProtocol.swift; sourceTree = "<group>"; };
+		0958C78321F61ED400D864C7 /* DisplayedItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayedItemType.swift; sourceTree = "<group>"; };
+		0969A7EF21F73D4100845CBD /* DesignablePicker+Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DesignablePicker+Appearance.swift"; sourceTree = "<group>"; };
+		0969A7F121F740BF00845CBD /* DesignableDatePicker+Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DesignableDatePicker+Appearance.swift"; sourceTree = "<group>"; };
+		23859DCBBA929A8CB47350B8 /* Pods-ReusableDataInputDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReusableDataInputDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReusableDataInputDemo/Pods-ReusableDataInputDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		2B07D07826D226B8DD07F8EE /* libPods-ReusableDataInputDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReusableDataInputDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8AC73F75E62BBDE4EDB2303A /* Pods-ReusableDataInputDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReusableDataInputDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReusableDataInputDemo/Pods-ReusableDataInputDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0E705C1CE87CB81BFE88439 /* libPods-ReusableDataInputDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +67,8 @@
 			children = (
 				093F811721F0ACC6000D0525 /* ReusableDataInputDemo */,
 				093F811621F0ACC6000D0525 /* Products */,
+				A3A312E97B9859F12CECF118 /* Pods */,
+				A38A56289CF1601F634F03B2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,13 +84,65 @@
 			isa = PBXGroup;
 			children = (
 				093F811821F0ACC6000D0525 /* AppDelegate.swift */,
-				093F811A21F0ACC6000D0525 /* ViewController.swift */,
+				0958C77621F5F99600D864C7 /* FontScheme.swift */,
+				0958C78321F61ED400D864C7 /* DisplayedItemType.swift */,
+				0958C78121F61E8900D864C7 /* DisplayedItemProtocol.swift */,
+				0958C77F21F61E1B00D864C7 /* DisplayedSectionProtocol.swift */,
+				0958C77B21F6023200D864C7 /* Scenes */,
+				0958C77A21F6020C00D864C7 /* Appearance */,
 				093F811C21F0ACC6000D0525 /* Main.storyboard */,
 				093F811F21F0ACC8000D0525 /* Assets.xcassets */,
 				093F812121F0ACC8000D0525 /* LaunchScreen.storyboard */,
 				093F812421F0ACC8000D0525 /* Info.plist */,
 			);
 			path = ReusableDataInputDemo;
+			sourceTree = "<group>";
+		};
+		0958C77A21F6020C00D864C7 /* Appearance */ = {
+			isa = PBXGroup;
+			children = (
+				0958C77321F5F5F800D864C7 /* AppearanceDefines.swift */,
+				0958C77121F5F43400D864C7 /* InputView+Appearance.swift */,
+				0958C77821F601B000D864C7 /* DesignableTextInput+Appearance.swift */,
+				0969A7EF21F73D4100845CBD /* DesignablePicker+Appearance.swift */,
+				0969A7F121F740BF00845CBD /* DesignableDatePicker+Appearance.swift */,
+			);
+			path = Appearance;
+			sourceTree = "<group>";
+		};
+		0958C77B21F6023200D864C7 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				0958C76F21F5EC5500D864C7 /* BaseViewController.swift */,
+				0958C77C21F61BA400D864C7 /* Home */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		0958C77C21F61BA400D864C7 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				0958C77D21F61C4100D864C7 /* HomeViewModel.swift */,
+				093F811A21F0ACC6000D0525 /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		A38A56289CF1601F634F03B2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2B07D07826D226B8DD07F8EE /* libPods-ReusableDataInputDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A3A312E97B9859F12CECF118 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				23859DCBBA929A8CB47350B8 /* Pods-ReusableDataInputDemo.debug.xcconfig */,
+				8AC73F75E62BBDE4EDB2303A /* Pods-ReusableDataInputDemo.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +152,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 093F812721F0ACC8000D0525 /* Build configuration list for PBXNativeTarget "ReusableDataInputDemo" */;
 			buildPhases = (
+				EF7BB6347689197C83893A16 /* [CP] Check Pods Manifest.lock */,
 				093F811121F0ACC6000D0525 /* Sources */,
 				093F811221F0ACC6000D0525 /* Frameworks */,
 				093F811321F0ACC6000D0525 /* Resources */,
+				C956760F67B16F06B12BDB32 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -130,13 +213,63 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C956760F67B16F06B12BDB32 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ReusableDataInputDemo/Pods-ReusableDataInputDemo-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/ReusableDataInput/ReusableDataInput.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ReusableDataInput.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReusableDataInputDemo/Pods-ReusableDataInputDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EF7BB6347689197C83893A16 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ReusableDataInputDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		093F811121F0ACC6000D0525 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				093F811B21F0ACC6000D0525 /* ViewController.swift in Sources */,
+				0958C78421F61ED400D864C7 /* DisplayedItemType.swift in Sources */,
+				093F811B21F0ACC6000D0525 /* HomeViewController.swift in Sources */,
+				0958C78021F61E1B00D864C7 /* DisplayedSectionProtocol.swift in Sources */,
+				0958C78221F61E8900D864C7 /* DisplayedItemProtocol.swift in Sources */,
+				0958C77221F5F43400D864C7 /* InputView+Appearance.swift in Sources */,
+				0969A7F021F73D4100845CBD /* DesignablePicker+Appearance.swift in Sources */,
+				0969A7F221F740BF00845CBD /* DesignableDatePicker+Appearance.swift in Sources */,
 				093F811921F0ACC6000D0525 /* AppDelegate.swift in Sources */,
+				0958C77E21F61C4100D864C7 /* HomeViewModel.swift in Sources */,
+				0958C77921F601B000D864C7 /* DesignableTextInput+Appearance.swift in Sources */,
+				0958C77021F5EC5500D864C7 /* BaseViewController.swift in Sources */,
+				0958C77421F5F5F800D864C7 /* AppearanceDefines.swift in Sources */,
+				0958C77721F5F99600D864C7 /* FontScheme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,7 +346,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -268,7 +401,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -280,6 +413,7 @@
 		};
 		093F812821F0ACC8000D0525 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23859DCBBA929A8CB47350B8 /* Pods-ReusableDataInputDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +432,7 @@
 		};
 		093F812921F0ACC8000D0525 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8AC73F75E62BBDE4EDB2303A /* Pods-ReusableDataInputDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
