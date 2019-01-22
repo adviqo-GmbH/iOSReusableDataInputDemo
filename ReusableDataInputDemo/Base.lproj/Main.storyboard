@@ -38,19 +38,43 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="UVg-1z-edQ">
-                                        <rect key="frame" x="8" y="16" width="359" height="322"/>
+                                        <rect key="frame" x="8" y="16" width="359" height="496"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E1Q-BM-CVT" userLabel="containerView">
-                                                <rect key="frame" x="0.0" y="0.0" width="359" height="66"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="359" height="182"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Yck-ma-XKZ">
-                                                        <rect key="frame" x="8" y="8" width="343" height="50"/>
+                                                        <rect key="frame" x="8" y="8" width="343" height="166"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VaY-Ki-pPt" userLabel="textInput" customClass="DesignableTextInput" customModule="ReusableDataInput">
                                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="50"/>
                                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="50" placeholder="YES" id="Qno-oT-dja"/>
+                                                                </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="IBState">
+                                                                        <integer key="value" value="0"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SSo-d0-SV8" userLabel="firstNameTextInput" customClass="DesignableTextInput" customModule="ReusableDataInput">
+                                                                <rect key="frame" x="0.0" y="58" width="343" height="50"/>
+                                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="50" placeholder="YES" id="Jt0-ej-lwg"/>
+                                                                </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="IBState">
+                                                                        <integer key="value" value="0"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jhp-Iw-Yoi" userLabel="lastNameTextInput" customClass="DesignableTextInput" customModule="ReusableDataInput">
+                                                                <rect key="frame" x="0.0" y="116" width="343" height="50"/>
+                                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="50" placeholder="YES" id="jyR-i5-Kys"/>
                                                                 </constraints>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="IBState">
@@ -70,10 +94,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wz4-7h-ty0" userLabel="containerView">
-                                                <rect key="frame" x="0.0" y="74" width="359" height="124"/>
+                                                <rect key="frame" x="0.0" y="190" width="359" height="182"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="DqM-g3-NDl">
-                                                        <rect key="frame" x="8" y="8" width="343" height="108"/>
+                                                        <rect key="frame" x="8" y="8" width="343" height="166"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DT2-vk-TGz" userLabel="pickerView" customClass="DesignablePicker" customModule="ReusableDataInput">
                                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="50"/>
@@ -85,8 +109,18 @@
                                                                     <userDefinedRuntimeAttribute type="image" keyPath="normalImage" value="pickerArrow"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t9E-Zl-Npd" userLabel="datePickerView" customClass="DesignableDatePicker" customModule="ReusableDataInput">
+                                                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rdp-ZN-jUG" userLabel="genderPicker" customClass="DesignablePicker" customModule="ReusableDataInput">
                                                                 <rect key="frame" x="0.0" y="58" width="343" height="50"/>
+                                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="50" placeholder="YES" id="xA6-M9-OZ6"/>
+                                                                </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="image" keyPath="normalImage" value="pickerArrow"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t9E-Zl-Npd" userLabel="datePickerView" customClass="DesignableDatePicker" customModule="ReusableDataInput">
+                                                                <rect key="frame" x="0.0" y="116" width="343" height="50"/>
                                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="50" placeholder="YES" id="s7Z-z6-v3N"/>
@@ -109,7 +143,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EwX-ft-fHW" userLabel="buttonsView">
-                                                <rect key="frame" x="0.0" y="206" width="359" height="116"/>
+                                                <rect key="frame" x="0.0" y="380" width="359" height="116"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="rKC-85-lyT">
                                                         <rect key="frame" x="0.0" y="8" width="359" height="108"/>
@@ -192,6 +226,9 @@
                     <navigationItem key="navigationItem" id="ayY-2F-ZVr"/>
                     <connections>
                         <outlet property="datePickerView" destination="t9E-Zl-Npd" id="yVT-N3-vco"/>
+                        <outlet property="firstNameTextInput" destination="SSo-d0-SV8" id="Jye-Pq-R2M"/>
+                        <outlet property="genderPicker" destination="Rdp-ZN-jUG" id="M8U-Li-fUU"/>
+                        <outlet property="lastNameTextInput" destination="jhp-Iw-Yoi" id="vnY-h7-rQV"/>
                         <outlet property="pickerView" destination="DT2-vk-TGz" id="2WE-Hg-NhB"/>
                         <outlet property="textInput" destination="VaY-Ki-pPt" id="7No-Ur-Qwu"/>
                         <outletCollection property="buttons" destination="man-tx-7fE" collectionClass="NSMutableArray" id="pUq-9N-quA"/>
@@ -202,6 +239,9 @@
                         <outletCollection property="inputViewCollection" destination="t9E-Zl-Npd" collectionClass="NSMutableArray" id="Plw-AJ-FQU"/>
                         <outletCollection property="containers" destination="E1Q-BM-CVT" collectionClass="NSMutableArray" id="N9Q-bB-ISk"/>
                         <outletCollection property="inputViewCollection" destination="VaY-Ki-pPt" collectionClass="NSMutableArray" id="feT-6T-SBh"/>
+                        <outletCollection property="inputViewCollection" destination="Rdp-ZN-jUG" collectionClass="NSMutableArray" id="MBb-cZ-I47"/>
+                        <outletCollection property="inputViewCollection" destination="jhp-Iw-Yoi" collectionClass="NSMutableArray" id="olV-wu-gs6"/>
+                        <outletCollection property="inputViewCollection" destination="SSo-d0-SV8" collectionClass="NSMutableArray" id="GeE-FD-9YV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

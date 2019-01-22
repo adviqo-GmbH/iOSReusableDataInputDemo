@@ -31,21 +31,28 @@ class HomeViewController: BaseViewController
     @IBAction func clearAction(_ sender: Any)
     {
         self.textInput.set(text: nil, animated: true)
+        self.firstNameTextInput.set(text: nil, animated: true)
+        self.lastNameTextInput.set(text: nil, animated: true)
         self.pickerView.value = nil
         self.datePickerView.set(date: nil, animated: true)
+        self.genderPicker.value = nil
     }
     
     @IBAction func setValueAction(_ sender: Any)
     {
-        self.textInput.set(text: "Sandra", animated: true)
+        self.textInput.set(text: "Example text value", animated: true)
+        self.firstNameTextInput.set(text: "Sandra", animated: true)
+        self.lastNameTextInput.set(text: "Gutierrez", animated: true)
         
-        self.pickerView.value = self.dataSource[1]
+        self.pickerView.value = self.pickerDataSource[1]
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         if let date = dateFormatter.date(from: "1975-10-06 01:01:01") as NSDate? {
             self.datePickerView.set(date: date, animated: true)
         }
+        
+        self.genderPicker.value = self.genderDataSource[0]
     }
     
     @objc fileprivate func textInputInfoAction(sender: UIButton)
@@ -58,13 +65,18 @@ class HomeViewController: BaseViewController
     
     // MARK: - Private
     @IBOutlet weak fileprivate var textInput: DesignableTextInput!
+    @IBOutlet weak fileprivate var firstNameTextInput: DesignableTextInput!
+    @IBOutlet weak fileprivate var lastNameTextInput: DesignableTextInput!
+    
     @IBOutlet weak fileprivate var pickerView: DesignablePicker!
     @IBOutlet weak fileprivate var datePickerView: DesignableDatePicker!
+    @IBOutlet weak fileprivate var genderPicker: DesignablePicker!
     
     @IBOutlet fileprivate var buttons: [UIButton]!
     @IBOutlet fileprivate var containers: [UIView]!
     
-    let dataSource = "Orange, Green, Blue, Red".components(separatedBy: ",")
+    let pickerDataSource = "Orange, Green, Blue, Red".components(separatedBy: ",").map { $0.trimmingCharacters(in: CharacterSet.whitespaces) }
+    let genderDataSource = "Female, Male".components(separatedBy: ",").map { $0.trimmingCharacters(in: CharacterSet.whitespaces) }
     
     internal func setupViewsOnLoad()
     {
@@ -93,8 +105,8 @@ class HomeViewController: BaseViewController
         // textInput
         do {
             DesignableTextInput.setupAppearance(forTextInput: self.textInput)
-            self.textInput.name = "firstName"
-            self.textInput.title = "First name"
+            self.textInput.name = "textInput"
+            self.textInput.title = "Text input"
             self.textInput.normalImage = infoInactiveImage
             self.textInput.normalImageColor = .brand
             self.textInput.activeImage = infoInactiveImage
@@ -104,19 +116,44 @@ class HomeViewController: BaseViewController
             self.textInput.delegate = self
             self.textInput.validator = self
             self.textInput.validationRules = [
-                ValidationRule(rule: .emptyString, message: "Please enter first name!")
+                ValidationRule(rule: .emptyString, message: "Please enter text!")
             ]
             self.textInput.rightButton.isEnabled = true
             self.textInput.rightButton.addTarget(self, action: #selector(self.textInputInfoAction(sender:)), for: .touchUpInside)
             self.textInput.infoMessage = "Information for better understanding what is required from user within a process."
-            self.textInput.leftImage = UIImage(named: "ic_person")
-            self.textInput.isSeparatorHidden = true
+        }
+        
+        // firstNameTextInput
+        do {
+            DesignableTextInput.setupAppearance(forTextInput: self.firstNameTextInput)
+            self.firstNameTextInput.name = "firstNameTextInput"
+            self.firstNameTextInput.title = "First name"
+            self.firstNameTextInput.delegate = self
+            self.firstNameTextInput.validator = self
+            self.firstNameTextInput.validationRules = [
+                ValidationRule(rule: .emptyString, message: "Please enter first name!")
+            ]
+            self.firstNameTextInput.leftImage = UIImage(named: "ic_person")
+        }
+        
+        // lastNameTextInput
+        do {
+            DesignableTextInput.setupAppearance(forTextInput: self.lastNameTextInput)
+            self.lastNameTextInput.name = "lastNameTextInput"
+            self.lastNameTextInput.title = "Last name"
+            self.lastNameTextInput.delegate = self
+            self.lastNameTextInput.validator = self
+            self.lastNameTextInput.validationRules = [
+                ValidationRule(rule: .emptyString, message: "Please enter last name!")
+            ]
+            self.lastNameTextInput.leftImage = UIImage(named: "ic_person")
+            self.lastNameTextInput.isSeparatorHidden = true
         }
         
         // pickerView
         do {
             DesignablePicker.setupAppearance(forPicker: self.pickerView)
-            self.pickerView.data = self.dataSource
+            self.pickerView.data = self.pickerDataSource
             self.pickerView.delegate = self
             self.pickerView.validator = self
             self.pickerView.name = "pickerView"
@@ -126,6 +163,20 @@ class HomeViewController: BaseViewController
             ]
         }
         
+        // genderPicker
+        do {
+            DesignablePicker.setupAppearance(forPicker: self.genderPicker)
+            self.genderPicker.data = self.genderDataSource
+            self.genderPicker.delegate = self
+            self.genderPicker.validator = self
+            self.genderPicker.name = "genderPicker"
+            self.genderPicker.title = "Gender"
+            self.genderPicker.validationRules = [
+                ValidationRule(rule: .emptyString, message: "Please select gender!")
+            ]
+            self.genderPicker.leftImage = UIImage(named: "ic_gender")
+        }
+
         // datePickerView
         do {
             DesignableDatePicker.setupAppearance(forDatePicker: self.datePickerView)
@@ -179,6 +230,11 @@ extension HomeViewController: PickerInputDelegate
             print("[\(type(of: self)) \(#function)] value: \(value) index: \(index)")
             return
         }
+        
+        if picker == self.genderPicker {
+            print("[\(type(of: self)) \(#function)] value: \(value) index: \(index)")
+            return
+        }
     }
     
     func pickerInputDidCancel(_ picker: DesignablePicker)
@@ -189,7 +245,10 @@ extension HomeViewController: PickerInputDelegate
     func pickerInput(_ picker: DesignablePicker, titleForRow row: Int) -> String
     {
         if picker == self.pickerView {
-            return self.dataSource[row]
+            return self.pickerDataSource[row]
+        }
+        if picker == self.genderPicker {
+            return self.genderDataSource[row]
         }
         return ""
     }
