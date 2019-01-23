@@ -52,7 +52,7 @@ class HomeViewController: BaseViewController
             self.datePickerView.set(date: date, animated: true)
         }
         
-        self.genderPicker.value = self.genderDataSource[0]
+        self.genderPicker.value = self.genderDataSource[0].title
     }
     
     @objc fileprivate func textInputInfoAction(sender: UIButton)
@@ -76,7 +76,27 @@ class HomeViewController: BaseViewController
     @IBOutlet fileprivate var containers: [UIView]!
     
     let pickerDataSource = "Orange, Green, Blue, Red".components(separatedBy: ",").map { $0.trimmingCharacters(in: CharacterSet.whitespaces) }
-    let genderDataSource = "Female, Male".components(separatedBy: ",").map { $0.trimmingCharacters(in: CharacterSet.whitespaces) }
+    let genderDataSource = [Gender.female, Gender.male]
+    
+    enum Gender: String
+    {
+        case female
+        case male
+        
+        var title: String {
+            switch self {
+            case .female: return "Female"
+            case .male: return "Male"
+            }
+        }
+        
+        var icon: UIImage? {
+            switch self {
+            case .female: return UIImage(named: "ic_male")
+            case .male: return UIImage(named: "ic_female")
+            }
+        }
+    }
     
     internal func setupViewsOnLoad()
     {
@@ -166,7 +186,7 @@ class HomeViewController: BaseViewController
         // genderPicker
         do {
             DesignablePicker.setupAppearance(forPicker: self.genderPicker)
-            self.genderPicker.data = self.genderDataSource
+            self.genderPicker.data = self.genderDataSource.map { $0.title }
             self.genderPicker.delegate = self
             self.genderPicker.validator = self
             self.genderPicker.name = "genderPicker"
@@ -233,6 +253,7 @@ extension HomeViewController: PickerInputDelegate
         
         if picker == self.genderPicker {
             print("[\(type(of: self)) \(#function)] value: \(value) index: \(index)")
+            picker.leftImage = self.genderDataSource[index].icon
             return
         }
     }
@@ -242,15 +263,37 @@ extension HomeViewController: PickerInputDelegate
         print("[\(type(of: self)) \(#function)]")
     }
     
-    func pickerInput(_ picker: DesignablePicker, titleForRow row: Int) -> String
+    func pickerInput(_ picker: DesignablePicker, titleForRow row: Int) -> String?
     {
         if picker == self.pickerView {
             return self.pickerDataSource[row]
         }
         if picker == self.genderPicker {
-            return self.genderDataSource[row]
+            return self.genderDataSource[row].title
         }
-        return ""
+        return nil
+    }
+    
+    func pickerInput(_ picker: DesignablePicker, viewForRow row: Int, reusing view: UIView?) -> UIView?
+    {
+        if picker == self.genderPicker {
+            let itemView: CustomItemPickerView
+            if let view = view {
+                itemView = view as! CustomItemPickerView
+            } else {
+                itemView = CustomItemPickerView.loadNib()
+                itemView.titleLabel.font = picker.pickerFont
+                itemView.titleLabel.textColor = picker.pickerTextColor
+            }
+            guard row < self.genderDataSource.count else {
+                return nil
+            }
+            itemView.titleLabel.text = self.genderDataSource[row].title
+            itemView.iconImageView.image = self.genderDataSource[row].icon
+            return itemView
+        }
+        
+        return nil
     }
 }
 

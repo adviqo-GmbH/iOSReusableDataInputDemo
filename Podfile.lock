@@ -2,7 +2,7 @@ PODS:
   - InputMask (4.0.2)
   - iOSReusableExtensions (1.0.5):
     - InputMask (~> 4.0)
-  - ReusableDataInput (1.0.1):
+  - ReusableDataInput (1.0.2):
     - InputMask (~> 4.0)
     - iOSReusableExtensions
   - RxAtomic (4.4.0)
@@ -10,30 +10,27 @@ PODS:
     - RxAtomic (~> 4.4)
 
 DEPENDENCIES:
-  - iOSReusableExtensions (from `~/Documents/Libraries/iOSReusableExtensions`)
-  - ReusableDataInput (from `~/Documents/Libraries/ReusableDataInput`)
+  - iOSReusableExtensions
+  - ReusableDataInput
   - RxAtomic
   - RxSwift
 
 SPEC REPOS:
+  https://github.com/adviqo-GmbH/iOSPodSpecs.git:
+    - iOSReusableExtensions
+    - ReusableDataInput
   https://github.com/cocoapods/specs.git:
     - InputMask
     - RxAtomic
     - RxSwift
 
-EXTERNAL SOURCES:
-  iOSReusableExtensions:
-    :path: "~/Documents/Libraries/iOSReusableExtensions"
-  ReusableDataInput:
-    :path: "~/Documents/Libraries/ReusableDataInput"
-
 SPEC CHECKSUMS:
   InputMask: b9df7a44c044f59485b2d596661e6bd4334bddb4
   iOSReusableExtensions: ecc381fcfe63899fb203d9108065ac34ebc2c0f4
-  ReusableDataInput: 751f2027c92cc1e18092ed51f10bfe10a93b1de7
+  ReusableDataInput: 50ae6ee05b589ac78625de97d1e793804c9305de
   RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
   RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
 
-PODFILE CHECKSUM: f2e1ac7c49728c75f26afd0e919586dbdb2f9856
+PODFILE CHECKSUM: a6fd745cb7ad8ed395049575b4592bf55c3f3952
 
 COCOAPODS: 1.5.3
