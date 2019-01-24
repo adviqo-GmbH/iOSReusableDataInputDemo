@@ -16,5 +16,6 @@ target 'ReusableDataInputDemo' do
   # pod 'iOSReusableExtensions', :path => '~/Documents/Libraries/iOSReusableExtensions'
   pod 'RxSwift'
   pod 'RxAtomic', :modular_headers => true
+  pod 'SwiftLuhn'
 
 end

@@ -25,11 +25,12 @@
 		0969A7F221F740BF00845CBD /* DesignableDatePicker+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969A7F121F740BF00845CBD /* DesignableDatePicker+Appearance.swift */; };
 		0969A7F621F779FE00845CBD /* CustomItemPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0969A7F421F779FE00845CBD /* CustomItemPickerView.xib */; };
 		0969A7F721F779FE00845CBD /* CustomItemPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969A7F521F779FE00845CBD /* CustomItemPickerView.swift */; };
-		F4FEA37C56CBCB8122F62362 /* libPods-ReusableDataInputDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0562C12B31F9A28A53740ED4 /* libPods-ReusableDataInputDemo.a */; };
+		0969A80021F8C2A300845CBD /* DesignableMaskedTextInput+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969A7FF21F8C2A300845CBD /* DesignableMaskedTextInput+Appearance.swift */; };
+		0969A80E21F8CD4A00845CBD /* DesignableMonthYearPicker+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969A80D21F8CD4A00845CBD /* DesignableMonthYearPicker+Appearance.swift */; };
+		B3D692728B112280B2133271 /* libPods-ReusableDataInputDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E501E907E36E0651785736E /* libPods-ReusableDataInputDemo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0562C12B31F9A28A53740ED4 /* libPods-ReusableDataInputDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReusableDataInputDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		093F811521F0ACC6000D0525 /* ReusableDataInputDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReusableDataInputDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		093F811821F0ACC6000D0525 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		093F811A21F0ACC6000D0525 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -50,8 +51,11 @@
 		0969A7F121F740BF00845CBD /* DesignableDatePicker+Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DesignableDatePicker+Appearance.swift"; sourceTree = "<group>"; };
 		0969A7F421F779FE00845CBD /* CustomItemPickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomItemPickerView.xib; sourceTree = "<group>"; };
 		0969A7F521F779FE00845CBD /* CustomItemPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomItemPickerView.swift; sourceTree = "<group>"; };
-		6531E1F6B5B3CBBC0FBDB4F8 /* Pods-ReusableDataInputDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReusableDataInputDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReusableDataInputDemo/Pods-ReusableDataInputDemo.release.xcconfig"; sourceTree = "<group>"; };
-		6B03E0F9C851EE402D5BB58E /* Pods-ReusableDataInputDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReusableDataInputDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReusableDataInputDemo/Pods-ReusableDataInputDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		0969A7FF21F8C2A300845CBD /* DesignableMaskedTextInput+Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DesignableMaskedTextInput+Appearance.swift"; sourceTree = "<group>"; };
+		0969A80D21F8CD4A00845CBD /* DesignableMonthYearPicker+Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DesignableMonthYearPicker+Appearance.swift"; sourceTree = "<group>"; };
+		2E501E907E36E0651785736E /* libPods-ReusableDataInputDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReusableDataInputDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		93DF65A01EB45003B82C6845 /* Pods-ReusableDataInputDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReusableDataInputDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReusableDataInputDemo/Pods-ReusableDataInputDemo.release.xcconfig"; sourceTree = "<group>"; };
+		ADDF19C96C1E09C53304B277 /* Pods-ReusableDataInputDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReusableDataInputDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReusableDataInputDemo/Pods-ReusableDataInputDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4FEA37C56CBCB8122F62362 /* libPods-ReusableDataInputDemo.a in Frameworks */,
+				B3D692728B112280B2133271 /* libPods-ReusableDataInputDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,8 +75,8 @@
 			children = (
 				093F811721F0ACC6000D0525 /* ReusableDataInputDemo */,
 				093F811621F0ACC6000D0525 /* Products */,
-				D2F920366642A46A6AD67E2B /* Pods */,
-				E83D00CABFDDFB0EECC17D5C /* Frameworks */,
+				685CCD419B575224F0213638 /* Pods */,
+				1E6ECAEE86BCB5A71B0A7448 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,6 +115,8 @@
 				0958C77821F601B000D864C7 /* DesignableTextInput+Appearance.swift */,
 				0969A7EF21F73D4100845CBD /* DesignablePicker+Appearance.swift */,
 				0969A7F121F740BF00845CBD /* DesignableDatePicker+Appearance.swift */,
+				0969A7FF21F8C2A300845CBD /* DesignableMaskedTextInput+Appearance.swift */,
+				0969A80D21F8CD4A00845CBD /* DesignableMonthYearPicker+Appearance.swift */,
 			);
 			path = Appearance;
 			sourceTree = "<group>";
@@ -142,21 +148,21 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		D2F920366642A46A6AD67E2B /* Pods */ = {
+		1E6ECAEE86BCB5A71B0A7448 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6B03E0F9C851EE402D5BB58E /* Pods-ReusableDataInputDemo.debug.xcconfig */,
-				6531E1F6B5B3CBBC0FBDB4F8 /* Pods-ReusableDataInputDemo.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		E83D00CABFDDFB0EECC17D5C /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				0562C12B31F9A28A53740ED4 /* libPods-ReusableDataInputDemo.a */,
+				2E501E907E36E0651785736E /* libPods-ReusableDataInputDemo.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		685CCD419B575224F0213638 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				ADDF19C96C1E09C53304B277 /* Pods-ReusableDataInputDemo.debug.xcconfig */,
+				93DF65A01EB45003B82C6845 /* Pods-ReusableDataInputDemo.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,11 +172,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 093F812721F0ACC8000D0525 /* Build configuration list for PBXNativeTarget "ReusableDataInputDemo" */;
 			buildPhases = (
-				F274B2405430B8B0578B2B00 /* [CP] Check Pods Manifest.lock */,
+				7062DC9B6377BA77ABFE8B1F /* [CP] Check Pods Manifest.lock */,
 				093F811121F0ACC6000D0525 /* Sources */,
 				093F811221F0ACC6000D0525 /* Frameworks */,
 				093F811321F0ACC6000D0525 /* Resources */,
-				2D46CC2737F04EAD71580D33 /* [CP] Copy Pods Resources */,
+				A7045192C9A5F68C925CECD0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -229,25 +235,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2D46CC2737F04EAD71580D33 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ReusableDataInputDemo/Pods-ReusableDataInputDemo-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/ReusableDataInput/ReusableDataInput.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ReusableDataInput.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReusableDataInputDemo/Pods-ReusableDataInputDemo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F274B2405430B8B0578B2B00 /* [CP] Check Pods Manifest.lock */ = {
+		7062DC9B6377BA77ABFE8B1F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -265,6 +253,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		A7045192C9A5F68C925CECD0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ReusableDataInputDemo/Pods-ReusableDataInputDemo-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/ReusableDataInput/ReusableDataInput.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ReusableDataInput.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReusableDataInputDemo/Pods-ReusableDataInputDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -275,6 +281,7 @@
 				0958C78421F61ED400D864C7 /* DisplayedItemType.swift in Sources */,
 				093F811B21F0ACC6000D0525 /* HomeViewController.swift in Sources */,
 				0958C78021F61E1B00D864C7 /* DisplayedSectionProtocol.swift in Sources */,
+				0969A80E21F8CD4A00845CBD /* DesignableMonthYearPicker+Appearance.swift in Sources */,
 				0958C78221F61E8900D864C7 /* DisplayedItemProtocol.swift in Sources */,
 				0958C77221F5F43400D864C7 /* InputView+Appearance.swift in Sources */,
 				0969A7F021F73D4100845CBD /* DesignablePicker+Appearance.swift in Sources */,
@@ -283,6 +290,7 @@
 				093F811921F0ACC6000D0525 /* AppDelegate.swift in Sources */,
 				0958C77E21F61C4100D864C7 /* HomeViewModel.swift in Sources */,
 				0958C77921F601B000D864C7 /* DesignableTextInput+Appearance.swift in Sources */,
+				0969A80021F8C2A300845CBD /* DesignableMaskedTextInput+Appearance.swift in Sources */,
 				0958C77021F5EC5500D864C7 /* BaseViewController.swift in Sources */,
 				0958C77421F5F5F800D864C7 /* AppearanceDefines.swift in Sources */,
 				0958C77721F5F99600D864C7 /* FontScheme.swift in Sources */,
@@ -429,7 +437,7 @@
 		};
 		093F812821F0ACC8000D0525 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6B03E0F9C851EE402D5BB58E /* Pods-ReusableDataInputDemo.debug.xcconfig */;
+			baseConfigurationReference = ADDF19C96C1E09C53304B277 /* Pods-ReusableDataInputDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -448,7 +456,7 @@
 		};
 		093F812921F0ACC8000D0525 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6531E1F6B5B3CBBC0FBDB4F8 /* Pods-ReusableDataInputDemo.release.xcconfig */;
+			baseConfigurationReference = 93DF65A01EB45003B82C6845 /* Pods-ReusableDataInputDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

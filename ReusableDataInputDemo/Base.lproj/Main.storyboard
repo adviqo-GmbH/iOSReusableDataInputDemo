@@ -31,17 +31,147 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="ReusableDataInputDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wdc-A2-kdO" userLabel="scrollView">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="936"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="UVg-1z-edQ">
-                                        <rect key="frame" x="8" y="16" width="359" height="496"/>
+                                        <rect key="frame" x="8" y="16" width="359" height="713.5"/>
                                         <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Formatted &amp; month and year picker examples" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="06D-ew-RvI" userLabel="titleLabel">
+                                                <rect key="frame" x="0.0" y="0.0" width="359" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8TJ-qU-C6z" userLabel="containerView">
+                                                <rect key="frame" x="0.0" y="28.5" width="359" height="124"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="z5U-J6-8KH">
+                                                        <rect key="frame" x="8" y="8" width="343" height="108"/>
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kSl-ob-SrC" userLabel="cardNumberTextInput" customClass="DesignableMaskedTextInput" customModule="ReusableDataInput">
+                                                                <rect key="frame" x="0.0" y="0.0" width="343" height="50"/>
+                                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="50" placeholder="YES" id="7aj-XP-5Ot"/>
+                                                                </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="IBState">
+                                                                        <integer key="value" value="0"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f1l-XJ-grX" userLabel="helperView">
+                                                                <rect key="frame" x="0.0" y="58" width="343" height="50"/>
+                                                                <subviews>
+                                                                    <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nwi-w2-FrS" userLabel="cardValidTillDatePicker" customClass="DesignableMonthYearPicker" customModule="ReusableDataInput">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="138" height="50"/>
+                                                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="50" placeholder="YES" id="7Fp-eC-EsQ"/>
+                                                                        </constraints>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="image" keyPath="normalImage" value="pickerArrow"/>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </view>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6wl-9C-HF0" userLabel="cardCVVTextInput" customClass="DesignableMaskedTextInput" customModule="ReusableDataInput">
+                                                                        <rect key="frame" x="146" y="0.0" width="197" height="50"/>
+                                                                        <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="50" placeholder="YES" id="8ca-rm-Xgc"/>
+                                                                        </constraints>
+                                                                    </view>
+                                                                </subviews>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstItem="nwi-w2-FrS" firstAttribute="width" secondItem="6wl-9C-HF0" secondAttribute="width" multiplier="0.7" id="Hbi-hJ-IGb"/>
+                                                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="6wl-9C-HF0" secondAttribute="bottom" id="JbJ-xr-fnW"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="6wl-9C-HF0" secondAttribute="trailing" id="NfI-e2-s3U"/>
+                                                                    <constraint firstAttribute="height" constant="50" placeholder="YES" id="P4s-oa-39j"/>
+                                                                    <constraint firstItem="6wl-9C-HF0" firstAttribute="top" secondItem="f1l-XJ-grX" secondAttribute="top" id="V0a-WQ-52A"/>
+                                                                    <constraint firstItem="6wl-9C-HF0" firstAttribute="leading" secondItem="nwi-w2-FrS" secondAttribute="trailing" constant="8" id="XHg-Xm-8JS"/>
+                                                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="nwi-w2-FrS" secondAttribute="bottom" id="hlM-0A-5uF"/>
+                                                                    <constraint firstItem="nwi-w2-FrS" firstAttribute="leading" secondItem="f1l-XJ-grX" secondAttribute="leading" id="juN-36-KPW"/>
+                                                                    <constraint firstItem="nwi-w2-FrS" firstAttribute="top" secondItem="f1l-XJ-grX" secondAttribute="top" id="lRe-qB-Hda"/>
+                                                                </constraints>
+                                                            </view>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="z5U-J6-8KH" secondAttribute="trailing" constant="8" id="42H-u6-Fmm"/>
+                                                    <constraint firstAttribute="bottom" secondItem="z5U-J6-8KH" secondAttribute="bottom" constant="8" id="b1K-fh-cd1"/>
+                                                    <constraint firstItem="z5U-J6-8KH" firstAttribute="top" secondItem="8TJ-qU-C6z" secondAttribute="top" constant="8" id="eYz-Ok-aav"/>
+                                                    <constraint firstItem="z5U-J6-8KH" firstAttribute="leading" secondItem="8TJ-qU-C6z" secondAttribute="leading" constant="8" id="m2G-1S-FD8"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pickers examples" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ax8-q2-hsT" userLabel="titleLabel">
+                                                <rect key="frame" x="0.0" y="160.5" width="359" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wz4-7h-ty0" userLabel="containerView">
+                                                <rect key="frame" x="0.0" y="189" width="359" height="182"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="DqM-g3-NDl">
+                                                        <rect key="frame" x="8" y="8" width="343" height="166"/>
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DT2-vk-TGz" userLabel="pickerView" customClass="DesignablePicker" customModule="ReusableDataInput">
+                                                                <rect key="frame" x="0.0" y="0.0" width="343" height="50"/>
+                                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="50" placeholder="YES" id="MwW-xR-A3X"/>
+                                                                </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="image" keyPath="normalImage" value="pickerArrow"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rdp-ZN-jUG" userLabel="genderPicker" customClass="DesignablePicker" customModule="ReusableDataInput">
+                                                                <rect key="frame" x="0.0" y="58" width="343" height="50"/>
+                                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="50" placeholder="YES" id="xA6-M9-OZ6"/>
+                                                                </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="image" keyPath="normalImage" value="pickerArrow"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t9E-Zl-Npd" userLabel="datePickerView" customClass="DesignableDatePicker" customModule="ReusableDataInput">
+                                                                <rect key="frame" x="0.0" y="116" width="343" height="50"/>
+                                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="50" placeholder="YES" id="s7Z-z6-v3N"/>
+                                                                </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="IBState">
+                                                                        <integer key="value" value="0"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </view>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="DqM-g3-NDl" firstAttribute="top" secondItem="Wz4-7h-ty0" secondAttribute="top" constant="8" id="Dqa-1V-w4F"/>
+                                                    <constraint firstAttribute="bottom" secondItem="DqM-g3-NDl" secondAttribute="bottom" constant="8" id="SoJ-KU-axe"/>
+                                                    <constraint firstAttribute="trailing" secondItem="DqM-g3-NDl" secondAttribute="trailing" constant="8" id="fkz-HZ-YLl"/>
+                                                    <constraint firstItem="DqM-g3-NDl" firstAttribute="leading" secondItem="Wz4-7h-ty0" secondAttribute="leading" constant="8" id="sZg-8l-q6o"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TextInput examples" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UkQ-co-aHy" userLabel="titleLabel">
+                                                <rect key="frame" x="0.0" y="379" width="359" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E1Q-BM-CVT" userLabel="containerView">
-                                                <rect key="frame" x="0.0" y="0.0" width="359" height="182"/>
+                                                <rect key="frame" x="0.0" y="407.5" width="359" height="182"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Yck-ma-XKZ">
                                                         <rect key="frame" x="8" y="8" width="343" height="166"/>
@@ -93,57 +223,8 @@
                                                     <constraint firstAttribute="bottom" secondItem="Yck-ma-XKZ" secondAttribute="bottom" constant="8" id="lA7-Sd-JsA"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wz4-7h-ty0" userLabel="containerView">
-                                                <rect key="frame" x="0.0" y="190" width="359" height="182"/>
-                                                <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="DqM-g3-NDl">
-                                                        <rect key="frame" x="8" y="8" width="343" height="166"/>
-                                                        <subviews>
-                                                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DT2-vk-TGz" userLabel="pickerView" customClass="DesignablePicker" customModule="ReusableDataInput">
-                                                                <rect key="frame" x="0.0" y="0.0" width="343" height="50"/>
-                                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="50" placeholder="YES" id="MwW-xR-A3X"/>
-                                                                </constraints>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="image" keyPath="normalImage" value="pickerArrow"/>
-                                                                </userDefinedRuntimeAttributes>
-                                                            </view>
-                                                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rdp-ZN-jUG" userLabel="genderPicker" customClass="DesignablePicker" customModule="ReusableDataInput">
-                                                                <rect key="frame" x="0.0" y="58" width="343" height="50"/>
-                                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="50" placeholder="YES" id="xA6-M9-OZ6"/>
-                                                                </constraints>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="image" keyPath="normalImage" value="pickerArrow"/>
-                                                                </userDefinedRuntimeAttributes>
-                                                            </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t9E-Zl-Npd" userLabel="datePickerView" customClass="DesignableDatePicker" customModule="ReusableDataInput">
-                                                                <rect key="frame" x="0.0" y="116" width="343" height="50"/>
-                                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="50" placeholder="YES" id="s7Z-z6-v3N"/>
-                                                                </constraints>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="IBState">
-                                                                        <integer key="value" value="0"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                </userDefinedRuntimeAttributes>
-                                                            </view>
-                                                        </subviews>
-                                                    </stackView>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstItem="DqM-g3-NDl" firstAttribute="top" secondItem="Wz4-7h-ty0" secondAttribute="top" constant="8" id="Dqa-1V-w4F"/>
-                                                    <constraint firstAttribute="bottom" secondItem="DqM-g3-NDl" secondAttribute="bottom" constant="8" id="SoJ-KU-axe"/>
-                                                    <constraint firstAttribute="trailing" secondItem="DqM-g3-NDl" secondAttribute="trailing" constant="8" id="fkz-HZ-YLl"/>
-                                                    <constraint firstItem="DqM-g3-NDl" firstAttribute="leading" secondItem="Wz4-7h-ty0" secondAttribute="leading" constant="8" id="sZg-8l-q6o"/>
-                                                </constraints>
-                                            </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EwX-ft-fHW" userLabel="buttonsView">
-                                                <rect key="frame" x="0.0" y="380" width="359" height="116"/>
+                                                <rect key="frame" x="0.0" y="597.5" width="359" height="116"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="rKC-85-lyT">
                                                         <rect key="frame" x="0.0" y="8" width="359" height="108"/>
@@ -224,7 +305,12 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="ayY-2F-ZVr"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="1000"/>
                     <connections>
+                        <outlet property="cardCVVTextInput" destination="6wl-9C-HF0" id="VHA-B6-i3q"/>
+                        <outlet property="cardNumberTextInput" destination="kSl-ob-SrC" id="8M1-17-Dxf"/>
+                        <outlet property="cardValidTillDatePicker" destination="nwi-w2-FrS" id="nhv-lI-fsK"/>
                         <outlet property="datePickerView" destination="t9E-Zl-Npd" id="yVT-N3-vco"/>
                         <outlet property="firstNameTextInput" destination="SSo-d0-SV8" id="Jye-Pq-R2M"/>
                         <outlet property="genderPicker" destination="Rdp-ZN-jUG" id="M8U-Li-fUU"/>
@@ -242,49 +328,12 @@
                         <outletCollection property="inputViewCollection" destination="Rdp-ZN-jUG" collectionClass="NSMutableArray" id="MBb-cZ-I47"/>
                         <outletCollection property="inputViewCollection" destination="jhp-Iw-Yoi" collectionClass="NSMutableArray" id="olV-wu-gs6"/>
                         <outletCollection property="inputViewCollection" destination="SSo-d0-SV8" collectionClass="NSMutableArray" id="GeE-FD-9YV"/>
+                        <outletCollection property="inputViewCollection" destination="kSl-ob-SrC" collectionClass="NSMutableArray" id="T3a-nf-9oZ"/>
+                        <outletCollection property="inputViewCollection" destination="nwi-w2-FrS" collectionClass="NSMutableArray" id="Jdw-bM-uJ1"/>
+                        <outletCollection property="inputViewCollection" destination="6wl-9C-HF0" collectionClass="NSMutableArray" id="HSf-zm-0z6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DM5-4B-Ctx" userLabel="containerView">
-                    <rect key="frame" x="0.0" y="0.0" width="343" height="50"/>
-                    <subviews>
-                        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K0x-Qj-Xjh" userLabel="pickerView" customClass="DesignablePicker" customModule="ReusableDataInput">
-                            <rect key="frame" x="0.0" y="0.0" width="167.5" height="50"/>
-                            <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="50" placeholder="YES" id="EzR-aI-O7p"/>
-                            </constraints>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="image" keyPath="normalImage" value="pickerArrow"/>
-                            </userDefinedRuntimeAttributes>
-                        </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a24-fM-yVV" userLabel="datePickerView" customClass="DesignableDatePicker" customModule="ReusableDataInput">
-                            <rect key="frame" x="175.5" y="0.0" width="167.5" height="50"/>
-                            <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="50" placeholder="YES" id="0IF-Tn-KQb"/>
-                            </constraints>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="IBState">
-                                    <integer key="value" value="0"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                        </view>
-                    </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstItem="K0x-Qj-Xjh" firstAttribute="top" secondItem="DM5-4B-Ctx" secondAttribute="top" id="3Pt-5z-oXY"/>
-                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="K0x-Qj-Xjh" secondAttribute="bottom" id="Eqf-8H-Zb1"/>
-                        <constraint firstAttribute="height" constant="50" placeholder="YES" id="KPU-uj-NJ7"/>
-                        <constraint firstItem="K0x-Qj-Xjh" firstAttribute="leading" secondItem="DM5-4B-Ctx" secondAttribute="leading" id="ODk-FQ-8mP"/>
-                        <constraint firstItem="a24-fM-yVV" firstAttribute="width" secondItem="K0x-Qj-Xjh" secondAttribute="width" id="X8j-Qe-HGd"/>
-                        <constraint firstAttribute="trailing" secondItem="a24-fM-yVV" secondAttribute="trailing" id="cZs-cm-Ayv"/>
-                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="a24-fM-yVV" secondAttribute="bottom" id="dtV-um-aE6"/>
-                        <constraint firstItem="a24-fM-yVV" firstAttribute="leading" secondItem="K0x-Qj-Xjh" secondAttribute="trailing" constant="8" id="p0v-cE-RSp"/>
-                        <constraint firstItem="a24-fM-yVV" firstAttribute="top" secondItem="DM5-4B-Ctx" secondAttribute="top" id="u30-5e-VZq"/>
-                    </constraints>
-                    <viewLayoutGuide key="safeArea" id="TXw-MT-Dyd"/>
-                </view>
             </objects>
             <point key="canvasLocation" x="116" y="95"/>
         </scene>

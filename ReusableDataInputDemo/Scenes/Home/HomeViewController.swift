@@ -9,6 +9,7 @@
 import UIKit
 import ReusableDataInput
 import iOSReusableExtensions
+import SwiftLuhn
 
 class HomeViewController: BaseViewController
 {
@@ -26,33 +27,54 @@ class HomeViewController: BaseViewController
     {
         self.inputViewCollection.forEach { $0.resignFirstResponderForInputView() }
         self.inputViewCollection.forEach { $0.state = $0.validate() ? .normal : .error }
+        /*
+        self.inputViewCollection.forEach {
+            let result = $0.validate()
+            if !result {
+                print("[\(type(of: self)) \(#function)] name: \(String(describing: $0.name)) result: \(result) message: \($0.errorMessage)")
+            }
+            $0.state = result ? .normal : .error
+        }
+        */
     }
     
     @IBAction func clearAction(_ sender: Any)
     {
-        self.textInput.set(text: nil, animated: true)
-        self.firstNameTextInput.set(text: nil, animated: true)
-        self.lastNameTextInput.set(text: nil, animated: true)
+        self.textInput.set(text: nil, animated: false)
+        self.firstNameTextInput.set(text: nil, animated: false)
+        self.lastNameTextInput.set(text: nil, animated: false)
+        
         self.pickerView.value = nil
-        self.datePickerView.set(date: nil, animated: true)
+        self.datePickerView.set(date: nil, animated: false)
         self.genderPicker.value = nil
+        
+        self.cardNumberTextInput.value = nil
+        self.cardValidTillDatePicker.set(text: nil, animated: false)
+        self.cardCVVTextInput.value = nil
     }
     
     @IBAction func setValueAction(_ sender: Any)
     {
-        self.textInput.set(text: "Example text value", animated: true)
-        self.firstNameTextInput.set(text: "Sandra", animated: true)
-        self.lastNameTextInput.set(text: "Gutierrez", animated: true)
+        // TextInput data
+        self.textInput.set(text: "Example text value", animated: false)
+        self.firstNameTextInput.set(text: "Sandra", animated: false)
+        self.lastNameTextInput.set(text: "Gutierrez", animated: false)
         
+        // Pickers data
         self.pickerView.value = self.pickerDataSource[1]
-        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         if let date = dateFormatter.date(from: "1975-10-06 01:01:01") as NSDate? {
-            self.datePickerView.set(date: date, animated: true)
+            self.datePickerView.set(date: date, animated: false)
         }
-        
         self.genderPicker.value = self.genderDataSource[0].title
+        
+        // Card data
+//        self.cardNumberTextInput.value = "5454545454545454"
+//        self.cardNumberTextInput.value = "378282246310005"
+        self.cardNumberTextInput.value = "5232249011576818"
+        self.cardValidTillDatePicker.set(month: 06, andYear: 2021, animated: false)
+        self.cardCVVTextInput.value = "333"
     }
     
     @objc fileprivate func textInputInfoAction(sender: UIButton)
@@ -61,6 +83,14 @@ class HomeViewController: BaseViewController
             self.textInput.resignFirstResponderForInputView()
         }
         self.textInput.state = (self.textInput.state == .normal) ? .info : .normal
+    }
+    
+    @objc fileprivate func cardCVVButtonAction(sender: UIButton)
+    {
+        if self.cardCVVTextInput.isFirstResponder {
+            self.cardCVVTextInput.resignFirstResponderForInputView()
+        }
+        self.cardCVVTextInput.state = (self.cardCVVTextInput.state == .normal) ? .info : .normal
     }
     
     // MARK: - Private
@@ -72,31 +102,16 @@ class HomeViewController: BaseViewController
     @IBOutlet weak fileprivate var datePickerView: DesignableDatePicker!
     @IBOutlet weak fileprivate var genderPicker: DesignablePicker!
     
+    @IBOutlet weak fileprivate var cardNumberTextInput: DesignableMaskedTextInput!
+    @IBOutlet weak fileprivate var cardValidTillDatePicker: DesignableMonthYearPicker!
+    @IBOutlet weak var cardCVVTextInput: DesignableMaskedTextInput!
+    
+    
     @IBOutlet fileprivate var buttons: [UIButton]!
     @IBOutlet fileprivate var containers: [UIView]!
     
     let pickerDataSource = "Orange, Green, Blue, Red".components(separatedBy: ",").map { $0.trimmingCharacters(in: CharacterSet.whitespaces) }
-    let genderDataSource = [Gender.female, Gender.male]
-    
-    enum Gender: String
-    {
-        case female
-        case male
-        
-        var title: String {
-            switch self {
-            case .female: return "Female"
-            case .male: return "Male"
-            }
-        }
-        
-        var icon: UIImage? {
-            switch self {
-            case .female: return UIImage(named: "ic_male")
-            case .male: return UIImage(named: "ic_female")
-            }
-        }
-    }
+    let genderDataSource: [Gender] = [.female, .male]
     
     internal func setupViewsOnLoad()
     {
@@ -209,6 +224,60 @@ class HomeViewController: BaseViewController
             ]
             self.datePickerView.isSeparatorHidden = true
         }
+        
+        // cardNumberTextInput
+        do {
+            DesignableMaskedTextInput.setupAppearance(forTextInput: self.cardNumberTextInput)
+            self.cardNumberTextInput.normalImageColor = nil
+            self.cardNumberTextInput.activeImageColor = nil
+            self.cardNumberTextInput.keyboardType = .numberPad
+            self.cardNumberTextInput.name = "cardNumberTextInput"
+            self.cardNumberTextInput.title = "Card number"
+            self.cardNumberTextInput.format = "[0000] [0000] [0000] [0000]"
+            self.cardNumberTextInput.maskedDelegate = self
+            self.cardNumberTextInput.validator = self
+            self.cardNumberTextInput.validationRules = [
+                ValidationRule(rule: .emptyString, message: "Please enter a credit card number!")
+            ]
+        }
+        
+        // cardValidTillDatePicker
+        do {
+            DesignableMonthYearPicker.setupAppearance(forPicker: self.cardValidTillDatePicker)
+            self.cardValidTillDatePicker.delegate = self
+            self.cardValidTillDatePicker.validator = self
+            self.cardValidTillDatePicker.name = "cardValidTillDatePicker"
+            self.cardValidTillDatePicker.title = "Valid until"
+            self.cardValidTillDatePicker.normalImage = UIImage(named: "calendar")
+            self.cardValidTillDatePicker.activeImage = UIImage(named: "calendar")
+            self.cardValidTillDatePicker.validationRules = [
+                ValidationRule(rule: .emptyString, message: "Please select month and year!")
+            ]
+            self.cardValidTillDatePicker.isSeparatorHidden = true
+        }
+        
+        // cardCVVTextInput
+        do {
+            DesignableMaskedTextInput.setupAppearance(forTextInput: self.cardCVVTextInput)
+            self.cardCVVTextInput.keyboardType = .numberPad
+            self.cardCVVTextInput.title = "CVV"
+            self.cardCVVTextInput.maskedDelegate = self
+            self.cardCVVTextInput.validator = self
+            self.cardCVVTextInput.format = "[0000]"
+            self.cardCVVTextInput.normalImageColor = .brand
+            self.cardCVVTextInput.activeImageColor = .brand
+            self.cardCVVTextInput.infoImageColor = .brand
+            self.cardCVVTextInput.normalImage = infoInactiveImage
+            self.cardCVVTextInput.activeImage = infoInactiveImage
+            self.cardCVVTextInput.infoImage = infoActiveImage
+            self.cardCVVTextInput.validationRules = [
+                ValidationRule(rule: .emptyString, message: "Please enter CVV!")
+            ]
+            self.cardCVVTextInput.rightButton.isEnabled = true
+            self.cardCVVTextInput.rightButton.addTarget(self, action: #selector(self.cardCVVButtonAction(sender:)), for: .touchUpInside)
+            self.cardCVVTextInput.infoMessage = "The security code on a credit card is the brief number that is printed on the card that helps verify its legitimacy."
+            self.cardCVVTextInput.isSeparatorHidden = true
+        }
     }
 }
 
@@ -258,7 +327,7 @@ extension HomeViewController: PickerInputDelegate
         }
     }
     
-    func pickerInputDidCancel(_ picker: DesignablePicker)
+    @nonobjc func pickerInputDidCancel(_ picker: DesignablePicker)
     {
         print("[\(type(of: self)) \(#function)]")
     }
@@ -314,6 +383,45 @@ extension HomeViewController: DatePickerInputDelegate
     }
 }
 
+// MARK: - MaskedTextInputDelegate
+extension HomeViewController: MaskedTextInputDelegate
+{
+    func textInput(_ textInput: DesignableMaskedTextInput, didFillMandatoryCharacters complete: Bool, didExtractValue value: String)
+    {
+//        print("[\(type(of: self)) \(#function)] value: \(value)")
+        
+        // Credit card number
+        if textInput == cardNumberTextInput {
+            if value.isEmpty {
+                textInput.normalImage = nil
+                textInput.activeImage = nil
+            }
+            if textInput.value?.length == 1 || complete {
+                if textInput.validate() {
+                    if textInput.state == .error {
+                        textInput.state = .active
+                    }
+                    textInput.normalImage = CreditCardType(withNumber: textInput.value)?.icon
+                    textInput.activeImage = textInput.normalImage
+                } else {
+                    textInput.state = .error
+                }
+                return
+            }
+            return
+        }
+    }
+}
+
+// MARK: - MonthYearPickerInputDelegate
+extension HomeViewController: MonthYearPickerInputDelegate
+{
+    func pickerInput(_ picker: DesignableMonthYearPicker, doneWithMonth month: Int, andYear year: Int)
+    {
+        print("[\(type(of: self)) \(#function)] month: \(month) year: \(year)")
+    }
+}
+
 // MARK: - InputViewValidator
 extension HomeViewController: InputViewValidator
 {
@@ -328,6 +436,39 @@ extension HomeViewController: InputViewValidator
                 return false
             }
         }
+        
+        // Credit card number
+        if inputView == self.cardNumberTextInput {
+            guard let value = perhapsValue else { return false }
+            if value.length == 1 {
+                guard let _ = CreditCardType(withNumber: value) else {
+                    inputView.errorMessage = "Invalid card vendor!"
+                    return false
+                }
+                return true
+            }
+            guard value.evaluate(with: "^[0-9]{15,16}$") else {
+                inputView.errorMessage = "Invalid credit card number!"
+                return false
+            }
+            guard value.isValidCardNumber() else {
+                inputView.errorMessage = "Invalid credit card number!"
+                return false
+            }
+            
+            return true
+        }
+        
+        if inputView == self.cardCVVTextInput {
+            guard let value = perhapsValue else { return false }
+            guard value.evaluate(with: "^[0-9]{3,4}$") else {
+                inputView.errorMessage = "Invalid security code!"
+                return false
+            }
+            
+            return true
+        }
+        
         return true
     }
 }
