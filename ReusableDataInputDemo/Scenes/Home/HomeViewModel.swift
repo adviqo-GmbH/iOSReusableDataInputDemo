@@ -9,15 +9,17 @@
 import Foundation
 import RxSwift
 
-public enum Gender: String
+public enum Gender: Int
 {
-    case female
-    case male
+    case undefined = 0
+    case male = 1
+    case female = 2
     
     var title: String {
         switch self {
         case .female: return "Female"
         case .male: return "Male"
+        case .undefined: return "Not specified"
         }
     }
     
@@ -25,6 +27,7 @@ public enum Gender: String
         switch self {
         case .female: return UIImage(named: "ic_male")
         case .male: return UIImage(named: "ic_female")
+        case .undefined: return UIImage(named: "ic_gender")
         }
     }
 }

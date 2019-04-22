@@ -10,10 +10,10 @@ target 'ReusableDataInputDemo' do
   # use_frameworks!
 
   # Pods for ReusableDataInputDemo
-  pod 'ReusableDataInput'
-  # pod 'ReusableDataInput', :path => '~/Documents/Libraries/ReusableDataInput'
-  pod 'iOSReusableExtensions'
-  # pod 'iOSReusableExtensions', :path => '~/Documents/Libraries/iOSReusableExtensions'
+  # pod 'ReusableDataInput'
+  pod 'ReusableDataInput', :path => '~/Documents/Libraries/ReusableDataInput'
+  # pod 'iOSReusableExtensions'
+  pod 'iOSReusableExtensions', :path => '~/Documents/Libraries/iOSReusableExtensions'
   pod 'RxSwift'
   pod 'RxAtomic', :modular_headers => true
   pod 'SwiftLuhn'

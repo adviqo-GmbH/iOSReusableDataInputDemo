@@ -38,7 +38,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="936"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="UVg-1z-edQ">
-                                        <rect key="frame" x="8" y="16" width="359" height="713.5"/>
+                                        <rect key="frame" x="8" y="16" width="359" height="771.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Formatted &amp; month and year picker examples" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="06D-ew-RvI" userLabel="titleLabel">
                                                 <rect key="frame" x="0.0" y="0.0" width="359" height="20.5"/>
@@ -130,6 +130,9 @@
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="image" keyPath="normalImage" value="pickerArrow"/>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <outlet property="nextInput" destination="Rdp-ZN-jUG" id="kH3-Xi-Eqj"/>
+                                                                </connections>
                                                             </view>
                                                             <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rdp-ZN-jUG" userLabel="genderPicker" customClass="DesignablePicker" customModule="ReusableDataInput">
                                                                 <rect key="frame" x="0.0" y="58" width="343" height="50"/>
@@ -140,6 +143,9 @@
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="image" keyPath="normalImage" value="pickerArrow"/>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <outlet property="nextInput" destination="t9E-Zl-Npd" id="akb-5j-uKp"/>
+                                                                </connections>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t9E-Zl-Npd" userLabel="datePickerView" customClass="DesignableDatePicker" customModule="ReusableDataInput">
                                                                 <rect key="frame" x="0.0" y="116" width="343" height="50"/>
@@ -224,10 +230,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EwX-ft-fHW" userLabel="buttonsView">
-                                                <rect key="frame" x="0.0" y="597.5" width="359" height="116"/>
+                                                <rect key="frame" x="0.0" y="597.5" width="359" height="174"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="rKC-85-lyT">
-                                                        <rect key="frame" x="0.0" y="8" width="359" height="108"/>
+                                                        <rect key="frame" x="0.0" y="8" width="359" height="166"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="man-tx-7fE" userLabel="validateButton">
                                                                 <rect key="frame" x="0.0" y="0.0" width="359" height="50"/>
@@ -273,6 +279,19 @@
                                                                     </button>
                                                                 </subviews>
                                                             </stackView>
+                                                            <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="446-Ct-Jj4" userLabel="scrollButton">
+                                                                <rect key="frame" x="0.0" y="116" width="359" height="50"/>
+                                                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="50" id="1iS-IX-cyF"/>
+                                                                </constraints>
+                                                                <state key="normal" title="Scroll">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="scrollAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SGg-vH-Lyq"/>
+                                                                </connections>
+                                                            </button>
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>

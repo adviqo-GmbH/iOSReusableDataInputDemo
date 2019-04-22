@@ -11,7 +11,7 @@ import ReusableDataInput
 
 public extension DesignableMaskedTextInput
 {
-    public class func setupAppearance(forTextInput textInput: DesignableMaskedTextInput)
+    class func setupAppearance(forTextInput textInput: DesignableMaskedTextInput)
     {
         DesignableTextInput.setupAppearance(forInputView: textInput)
     }

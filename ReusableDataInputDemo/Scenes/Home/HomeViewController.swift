@@ -56,25 +56,35 @@ class HomeViewController: BaseViewController
     @IBAction func setValueAction(_ sender: Any)
     {
         // TextInput data
-        self.textInput.set(text: "Example text value", animated: false)
-        self.firstNameTextInput.set(text: "Sandra", animated: false)
-        self.lastNameTextInput.set(text: "Gutierrez", animated: false)
-        
-        // Pickers data
-        self.pickerView.value = self.pickerDataSource[1]
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        if let date = dateFormatter.date(from: "1975-10-06 01:01:01") as NSDate? {
-            self.datePickerView.set(date: date, animated: false)
+        do {
+            self.textInput.set(text: "Example text value", animated: false)
+            self.firstNameTextInput.set(text: "Sandra", animated: false)
+            self.lastNameTextInput.set(text: "Gutierrez", animated: false)
         }
+        
+        // Picker
+        self.pickerView.value = self.pickerDataSource[1]
+        
+        // datePickerView
+        do {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            if let date = dateFormatter.date(from: "1975-10-06 01:01:01") as NSDate? {
+                self.datePickerView.set(date: date, animated: false)
+            }
+        }
+        
+        // genderPicker
         self.genderPicker.value = self.genderDataSource[0].title
         
         // Card data
-//        self.cardNumberTextInput.value = "5454545454545454"
-//        self.cardNumberTextInput.value = "378282246310005"
-        self.cardNumberTextInput.value = "5232249011576818"
-        self.cardValidTillDatePicker.set(month: 06, andYear: 2021, animated: false)
-        self.cardCVVTextInput.value = "333"
+        do {
+            //        self.cardNumberTextInput.value = "5454545454545454"
+            //        self.cardNumberTextInput.value = "378282246310005"
+            self.cardNumberTextInput.value = "5232249011576818"
+            self.cardValidTillDatePicker.set(month: 06, andYear: 2021, animated: false)
+            self.cardCVVTextInput.value = "333"
+        }
     }
     
     @objc fileprivate func textInputInfoAction(sender: UIButton)
@@ -91,6 +101,15 @@ class HomeViewController: BaseViewController
             self.cardCVVTextInput.resignFirstResponderForInputView()
         }
         self.cardCVVTextInput.state = (self.cardCVVTextInput.state == .normal) ? .info : .normal
+    }
+    
+    @IBAction func scrollAction(_ sender: Any)
+    {
+        guard let scrollView = self.view.scrollView else {
+            return
+        }
+        let currentFrame = scrollView.convert(self.cardNumberTextInput.bounds, from: self.cardNumberTextInput)
+        scrollView.scrollRectToVisible(currentFrame, animated: true)
     }
     
     // MARK: - Private
@@ -301,12 +320,12 @@ extension HomeViewController: TextInputDelegate
     
     func textInputDidBeginEditing(_ textInput: DesignableTextInput)
     {
-        print("[\(type(of: self)) \(#function)]")
+//        print("[\(type(of: self)) \(#function)]")
     }
     
     func textInputDidEndEditing(_ textInput: DesignableTextInput)
     {
-        print("[\(type(of: self)) \(#function)]")
+//        print("[\(type(of: self)) \(#function)]")
     }
 }
 
@@ -315,6 +334,9 @@ extension HomeViewController: PickerInputDelegate
 {
     func pickerInput(_ picker: DesignablePicker, doneWithValue value: String, andIndex index: Int)
     {
+        if let nextInput = picker.nextInput {
+            nextInput.becomeFirstResponderForInputView()
+        }
         if picker == self.pickerView {
             print("[\(type(of: self)) \(#function)] value: \(value) index: \(index)")
             return

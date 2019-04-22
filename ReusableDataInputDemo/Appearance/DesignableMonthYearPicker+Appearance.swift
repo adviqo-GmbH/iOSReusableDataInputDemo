@@ -11,7 +11,7 @@ import ReusableDataInput
 
 public extension DesignableMonthYearPicker
 {
-    public class func setupAppearance(forPicker inputView: DesignableMonthYearPicker)
+    class func setupAppearance(forPicker inputView: DesignableMonthYearPicker)
     {
         DesignableTextInput.setupAppearance(forInputView: inputView)
         
