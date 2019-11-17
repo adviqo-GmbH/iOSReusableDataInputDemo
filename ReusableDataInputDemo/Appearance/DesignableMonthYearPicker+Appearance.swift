@@ -15,7 +15,7 @@ public extension DesignableMonthYearPicker
     {
         DesignableTextInput.setupAppearance(forInputView: inputView)
         
-        inputView.toolbarBackgroundColor = .backgroundLight
+        inputView.toolbarBackgroundColor = UIColor.InputView.background
         inputView.pickerColor = .brand
         inputView.pickerTextColor = .textPrimaryDark
         

@@ -11,11 +11,11 @@ import ReusableDataInput
 
 public extension DesignableDatePicker
 {
-    public class func setupAppearance(forDatePicker picker: DesignableDatePicker)
+    class func setupAppearance(forDatePicker picker: DesignableDatePicker)
     {
         DesignableDatePicker.setupAppearance(forInputView: picker)
         
-        picker.toolbarBackgroundColor = .backgroundLight
+        picker.toolbarBackgroundColor = UIColor.InputView.background
         picker.pickerColor = .brand
         
         picker.cancelButton.title = "Cancel"

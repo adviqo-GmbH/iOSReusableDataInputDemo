@@ -113,191 +113,24 @@ class HomeViewController: BaseViewController
     }
     
     // MARK: - Private
-    @IBOutlet weak fileprivate var textInput: DesignableTextInput!
-    @IBOutlet weak fileprivate var firstNameTextInput: DesignableTextInput!
-    @IBOutlet weak fileprivate var lastNameTextInput: DesignableTextInput!
+    @IBOutlet weak private var textInput: DesignableTextInput!
+    @IBOutlet weak private var firstNameTextInput: DesignableTextInput!
+    @IBOutlet weak private var lastNameTextInput: DesignableTextInput!
     
-    @IBOutlet weak fileprivate var pickerView: DesignablePicker!
-    @IBOutlet weak fileprivate var datePickerView: DesignableDatePicker!
-    @IBOutlet weak fileprivate var genderPicker: DesignablePicker!
+    @IBOutlet weak private var pickerView: DesignablePicker!
+    @IBOutlet weak private var datePickerView: DesignableDatePicker!
+    @IBOutlet weak private var genderPicker: DesignablePicker!
     
-    @IBOutlet weak fileprivate var cardNumberTextInput: DesignableMaskedTextInput!
-    @IBOutlet weak fileprivate var cardValidTillDatePicker: DesignableMonthYearPicker!
-    @IBOutlet weak var cardCVVTextInput: DesignableMaskedTextInput!
+    @IBOutlet weak private var cardNumberTextInput: DesignableMaskedTextInput!
+    @IBOutlet weak private var cardValidTillDatePicker: DesignableMonthYearPicker!
+    @IBOutlet weak private var cardCVVTextInput: DesignableMaskedTextInput!
     
-    
-    @IBOutlet fileprivate var buttons: [UIButton]!
-    @IBOutlet fileprivate var containers: [UIView]!
+    @IBOutlet private var buttons: [UIButton]!
+    @IBOutlet private var containers: [UIView]!
+    @IBOutlet private var labels: [UILabel]!
     
     let pickerDataSource = "Orange, Green, Blue, Red".components(separatedBy: ",").map { $0.trimmingCharacters(in: CharacterSet.whitespaces) }
     let genderDataSource: [Gender] = [.female, .male]
-    
-    internal func setupViewsOnLoad()
-    {
-        self.title = "Reusable Data Input Demo"
-        self.view.backgroundColor = .brand
-        
-        // buttons
-        self.buttons.forEach {
-            $0.backgroundColor = .white
-            $0.layer.cornerRadius = 8
-            $0.clipsToBounds = true
-            $0.titleLabel?.font = UIFont.brand(font: .regular, withSize: .h5)
-            $0.setTitleColor(.textPrimaryDark, for: .normal)
-        }
-        
-        // containers
-        self.containers.forEach {
-            $0.backgroundColor = .white
-            $0.layer.cornerRadius = 8
-            $0.clipsToBounds = true
-        }
-        
-        let infoInactiveImage = UIImage(named: "infoInactive")
-        let infoActiveImage = UIImage(named: "infoActive")
-        
-        // textInput
-        do {
-            DesignableTextInput.setupAppearance(forTextInput: self.textInput)
-            self.textInput.name = "textInput"
-            self.textInput.title = "Text input"
-            self.textInput.normalImage = infoInactiveImage
-            self.textInput.normalImageColor = .brand
-            self.textInput.activeImage = infoInactiveImage
-            self.textInput.activeImageColor = .brand
-            self.textInput.infoImage = infoActiveImage
-            self.textInput.infoImageColor = .brand
-            self.textInput.delegate = self
-            self.textInput.validator = self
-            self.textInput.validationRules = [
-                ValidationRule(rule: .emptyString, message: "Please enter text!")
-            ]
-            self.textInput.rightButton.isEnabled = true
-            self.textInput.rightButton.addTarget(self, action: #selector(self.textInputInfoAction(sender:)), for: .touchUpInside)
-            self.textInput.infoMessage = "Information for better understanding what is required from user within a process."
-        }
-        
-        // firstNameTextInput
-        do {
-            DesignableTextInput.setupAppearance(forTextInput: self.firstNameTextInput)
-            self.firstNameTextInput.name = "firstNameTextInput"
-            self.firstNameTextInput.title = "First name"
-            self.firstNameTextInput.delegate = self
-            self.firstNameTextInput.validator = self
-            self.firstNameTextInput.validationRules = [
-                ValidationRule(rule: .emptyString, message: "Please enter first name!")
-            ]
-            self.firstNameTextInput.leftImage = UIImage(named: "ic_person")
-        }
-        
-        // lastNameTextInput
-        do {
-            DesignableTextInput.setupAppearance(forTextInput: self.lastNameTextInput)
-            self.lastNameTextInput.name = "lastNameTextInput"
-            self.lastNameTextInput.title = "Last name"
-            self.lastNameTextInput.delegate = self
-            self.lastNameTextInput.validator = self
-            self.lastNameTextInput.validationRules = [
-                ValidationRule(rule: .emptyString, message: "Please enter last name!")
-            ]
-            self.lastNameTextInput.leftImage = UIImage(named: "ic_person")
-            self.lastNameTextInput.isSeparatorHidden = true
-        }
-        
-        // pickerView
-        do {
-            DesignablePicker.setupAppearance(forPicker: self.pickerView)
-            self.pickerView.data = self.pickerDataSource
-            self.pickerView.delegate = self
-            self.pickerView.validator = self
-            self.pickerView.name = "pickerView"
-            self.pickerView.title = "Picker"
-            self.pickerView.validationRules = [
-                ValidationRule(rule: .emptyString, message: "Please select picker value!")
-            ]
-        }
-        
-        // genderPicker
-        do {
-            DesignablePicker.setupAppearance(forPicker: self.genderPicker)
-            self.genderPicker.data = self.genderDataSource.map { $0.title }
-            self.genderPicker.delegate = self
-            self.genderPicker.validator = self
-            self.genderPicker.name = "genderPicker"
-            self.genderPicker.title = "Gender"
-            self.genderPicker.validationRules = [
-                ValidationRule(rule: .emptyString, message: "Please select gender!")
-            ]
-            self.genderPicker.leftImage = UIImage(named: "ic_gender")
-        }
-
-        // datePickerView
-        do {
-            DesignableDatePicker.setupAppearance(forDatePicker: self.datePickerView)
-            self.datePickerView.delegate = self
-            self.datePickerView.validator = self
-            self.datePickerView.name = "datePickerView"
-            self.datePickerView.title = "Date picker"
-            self.datePickerView.validationRules = [
-                ValidationRule(rule: .emptyString, message: "Please select date picker value!")
-            ]
-            self.datePickerView.isSeparatorHidden = true
-        }
-        
-        // cardNumberTextInput
-        do {
-            DesignableMaskedTextInput.setupAppearance(forTextInput: self.cardNumberTextInput)
-            self.cardNumberTextInput.normalImageColor = nil
-            self.cardNumberTextInput.activeImageColor = nil
-            self.cardNumberTextInput.keyboardType = .numberPad
-            self.cardNumberTextInput.name = "cardNumberTextInput"
-            self.cardNumberTextInput.title = "Card number"
-            self.cardNumberTextInput.format = "[0000] [0000] [0000] [0000]"
-            self.cardNumberTextInput.maskedDelegate = self
-            self.cardNumberTextInput.validator = self
-            self.cardNumberTextInput.validationRules = [
-                ValidationRule(rule: .emptyString, message: "Please enter a credit card number!")
-            ]
-        }
-        
-        // cardValidTillDatePicker
-        do {
-            DesignableMonthYearPicker.setupAppearance(forPicker: self.cardValidTillDatePicker)
-            self.cardValidTillDatePicker.delegate = self
-            self.cardValidTillDatePicker.validator = self
-            self.cardValidTillDatePicker.name = "cardValidTillDatePicker"
-            self.cardValidTillDatePicker.title = "Valid until"
-            self.cardValidTillDatePicker.normalImage = UIImage(named: "calendar")
-            self.cardValidTillDatePicker.activeImage = UIImage(named: "calendar")
-            self.cardValidTillDatePicker.validationRules = [
-                ValidationRule(rule: .emptyString, message: "Please select month and year!")
-            ]
-            self.cardValidTillDatePicker.isSeparatorHidden = true
-        }
-        
-        // cardCVVTextInput
-        do {
-            DesignableMaskedTextInput.setupAppearance(forTextInput: self.cardCVVTextInput)
-            self.cardCVVTextInput.keyboardType = .numberPad
-            self.cardCVVTextInput.title = "CVV"
-            self.cardCVVTextInput.maskedDelegate = self
-            self.cardCVVTextInput.validator = self
-            self.cardCVVTextInput.format = "[0000]"
-            self.cardCVVTextInput.normalImageColor = .brand
-            self.cardCVVTextInput.activeImageColor = .brand
-            self.cardCVVTextInput.infoImageColor = .brand
-            self.cardCVVTextInput.normalImage = infoInactiveImage
-            self.cardCVVTextInput.activeImage = infoInactiveImage
-            self.cardCVVTextInput.infoImage = infoActiveImage
-            self.cardCVVTextInput.validationRules = [
-                ValidationRule(rule: .emptyString, message: "Please enter CVV!")
-            ]
-            self.cardCVVTextInput.rightButton.isEnabled = true
-            self.cardCVVTextInput.rightButton.addTarget(self, action: #selector(self.cardCVVButtonAction(sender:)), for: .touchUpInside)
-            self.cardCVVTextInput.infoMessage = "The security code on a credit card is the brief number that is printed on the card that helps verify its legitimacy."
-            self.cardCVVTextInput.isSeparatorHidden = true
-        }
-    }
 }
 
 // MARK: - TextInputDelegate
@@ -449,9 +282,7 @@ extension HomeViewController: InputViewValidator
 {
     func inputView(_ inputView: InputView, shouldValidateValue perhapsValue: String?) -> Bool
     {
-        guard let validationRules = inputView.validationRules else {
-            return true
-        }
+        guard let validationRules = inputView.validationRules else { return true }
         for validationRule in validationRules {
             if !validationRule.rule.validationHandler(perhapsValue) {
                 inputView.errorMessage = validationRule.message
@@ -492,5 +323,183 @@ extension HomeViewController: InputViewValidator
         }
         
         return true
+    }
+}
+
+// MARK: - Private
+extension HomeViewController
+{
+    private func setupViewsOnLoad()
+    {
+        self.title = "Home"
+        self.view.backgroundColor = .background
+        
+        // buttons
+        self.buttons.forEach {
+            $0.backgroundColor = UIColor.Button.background
+            $0.layer.cornerRadius = 8
+            $0.clipsToBounds = true
+            $0.titleLabel?.font = UIFont.brand(font: .regular, withSize: .h5)
+            $0.setTitleColor(UIColor.Button.title, for: .normal)
+        }
+        
+        // containers
+        self.containers.forEach {
+            $0.backgroundColor = .white
+            $0.layer.cornerRadius = 8
+            $0.clipsToBounds = true
+        }
+        
+        // labels
+        do {
+            self.labels.forEach {
+                $0.textColor = .brand
+            }
+        }
+        
+        let infoInactiveImage = UIImage(named: "infoInactive")
+        let infoActiveImage = UIImage(named: "infoActive")
+        
+        // textInput
+        do {
+            DesignableTextInput.setupAppearance(forTextInput: self.textInput)
+            self.textInput.name = "textInput"
+            self.textInput.title = "Text input"
+            self.textInput.normalImage = infoInactiveImage
+            self.textInput.normalImageColor = .brand
+            self.textInput.activeImage = infoInactiveImage
+            self.textInput.activeImageColor = .brand
+            self.textInput.infoImage = infoActiveImage
+            self.textInput.infoImageColor = .brand
+            self.textInput.delegate = self
+            self.textInput.validator = self
+            self.textInput.validationRules = [
+                ValidationRule(rule: .emptyString, message: "Please enter text!")
+            ]
+            self.textInput.rightButton.isEnabled = true
+            self.textInput.rightButton.addTarget(self, action: #selector(self.textInputInfoAction(sender:)), for: .touchUpInside)
+            self.textInput.infoMessage = "Information for better understanding what is required from user within a process."
+        }
+        
+        // firstNameTextInput
+        do {
+            DesignableTextInput.setupAppearance(forTextInput: self.firstNameTextInput)
+            self.firstNameTextInput.name = "firstNameTextInput"
+            self.firstNameTextInput.title = "First name"
+            self.firstNameTextInput.delegate = self
+            self.firstNameTextInput.validator = self
+            self.firstNameTextInput.validationRules = [
+                ValidationRule(rule: .emptyString, message: "Please enter first name!")
+            ]
+            self.firstNameTextInput.leftImage = UIImage(named: "ic_person")
+        }
+        
+        // lastNameTextInput
+        do {
+            DesignableTextInput.setupAppearance(forTextInput: self.lastNameTextInput)
+            self.lastNameTextInput.name = "lastNameTextInput"
+            self.lastNameTextInput.title = "Last name"
+            self.lastNameTextInput.delegate = self
+            self.lastNameTextInput.validator = self
+            self.lastNameTextInput.validationRules = [
+                ValidationRule(rule: .emptyString, message: "Please enter last name!")
+            ]
+            self.lastNameTextInput.leftImage = UIImage(named: "ic_person")
+            self.lastNameTextInput.isSeparatorHidden = true
+        }
+        
+        // pickerView
+        do {
+            DesignablePicker.setupAppearance(forPicker: self.pickerView)
+            self.pickerView.data = self.pickerDataSource
+            self.pickerView.delegate = self
+            self.pickerView.validator = self
+            self.pickerView.name = "pickerView"
+            self.pickerView.title = "Picker"
+            self.pickerView.validationRules = [
+                ValidationRule(rule: .emptyString, message: "Please select picker value!")
+            ]
+        }
+        
+        // genderPicker
+        do {
+            DesignablePicker.setupAppearance(forPicker: self.genderPicker)
+            self.genderPicker.data = self.genderDataSource.map { $0.title }
+            self.genderPicker.delegate = self
+            self.genderPicker.validator = self
+            self.genderPicker.name = "genderPicker"
+            self.genderPicker.title = "Gender"
+            self.genderPicker.validationRules = [
+                ValidationRule(rule: .emptyString, message: "Please select gender!")
+            ]
+            self.genderPicker.leftImage = UIImage(named: "ic_gender")
+        }
+
+        // datePickerView
+        do {
+            DesignableDatePicker.setupAppearance(forDatePicker: self.datePickerView)
+            self.datePickerView.delegate = self
+            self.datePickerView.validator = self
+            self.datePickerView.name = "datePickerView"
+            self.datePickerView.title = "Date picker"
+            self.datePickerView.validationRules = [
+                ValidationRule(rule: .emptyString, message: "Please select date picker value!")
+            ]
+            self.datePickerView.isSeparatorHidden = true
+        }
+        
+        // cardNumberTextInput
+        do {
+            DesignableMaskedTextInput.setupAppearance(forTextInput: self.cardNumberTextInput)
+            self.cardNumberTextInput.normalImageColor = nil
+            self.cardNumberTextInput.activeImageColor = nil
+            self.cardNumberTextInput.keyboardType = .numberPad
+            self.cardNumberTextInput.name = "cardNumberTextInput"
+            self.cardNumberTextInput.title = "Card number"
+            self.cardNumberTextInput.format = "[0000] [0000] [0000] [0000]"
+            self.cardNumberTextInput.maskedDelegate = self
+            self.cardNumberTextInput.validator = self
+            self.cardNumberTextInput.validationRules = [
+                ValidationRule(rule: .emptyString, message: "Please enter a credit card number!")
+            ]
+        }
+        
+        // cardValidTillDatePicker
+        do {
+            DesignableMonthYearPicker.setupAppearance(forPicker: self.cardValidTillDatePicker)
+            self.cardValidTillDatePicker.delegate = self
+            self.cardValidTillDatePicker.validator = self
+            self.cardValidTillDatePicker.name = "cardValidTillDatePicker"
+            self.cardValidTillDatePicker.title = "Valid until"
+            self.cardValidTillDatePicker.normalImage = UIImage(named: "calendar")
+            self.cardValidTillDatePicker.activeImage = UIImage(named: "calendar")
+            self.cardValidTillDatePicker.validationRules = [
+                ValidationRule(rule: .emptyString, message: "Please select month and year!")
+            ]
+            self.cardValidTillDatePicker.isSeparatorHidden = true
+        }
+        
+        // cardCVVTextInput
+        do {
+            DesignableMaskedTextInput.setupAppearance(forTextInput: self.cardCVVTextInput)
+            self.cardCVVTextInput.keyboardType = .numberPad
+            self.cardCVVTextInput.title = "CVV"
+            self.cardCVVTextInput.maskedDelegate = self
+            self.cardCVVTextInput.validator = self
+            self.cardCVVTextInput.format = "[0000]"
+            self.cardCVVTextInput.normalImageColor = .brand
+            self.cardCVVTextInput.activeImageColor = .brand
+            self.cardCVVTextInput.infoImageColor = .brand
+            self.cardCVVTextInput.normalImage = infoInactiveImage
+            self.cardCVVTextInput.activeImage = infoInactiveImage
+            self.cardCVVTextInput.infoImage = infoActiveImage
+            self.cardCVVTextInput.validationRules = [
+                ValidationRule(rule: .emptyString, message: "Please enter CVV!")
+            ]
+            self.cardCVVTextInput.rightButton.isEnabled = true
+            self.cardCVVTextInput.rightButton.addTarget(self, action: #selector(self.cardCVVButtonAction(sender:)), for: .touchUpInside)
+            self.cardCVVTextInput.infoMessage = "The security code on a credit card is the brief number that is printed on the card that helps verify its legitimacy."
+            self.cardCVVTextInput.isSeparatorHidden = true
+        }
     }
 }

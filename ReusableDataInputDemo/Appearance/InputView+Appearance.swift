@@ -11,10 +11,10 @@ import ReusableDataInput
 
 public extension InputView
 {
-    public class func setupAppearance(forInputView inputView: InputView)
+    class func setupAppearance(forInputView inputView: InputView)
     {
         let primaryColor = UIColor.brandGrey
-        let backgroundColor = UIColor.backgroundLight
+        let backgroundColor = UIColor.InputView.background
         
         inputView.normalColor = primaryColor
         inputView.normalImageColor = primaryColor
@@ -48,12 +48,12 @@ public extension InputView
         inputView.font = UIFont.brand(font: .medium, withSize: fontSize)
         inputView.placeholderFont = UIFont.brand(font: .medium, withSize: fontSize)
         
-        inputView.titleColor = .inputTitle
+        inputView.titleColor = UIColor.InputView.title
         inputView.titleFont = UIFont.brand(font: .medium, withSize: .h8)
         inputView.cornerRadius = 0
         inputView.messageFont = UIFont.brand(font: .regular, withSize: .h7)
         
-        inputView.separatorColor = .inputSeparator
+        inputView.separatorColor = UIColor.InputView.separator
         inputView.separatorHeight = 1
         inputView.isSeparatorHidden = false
     }

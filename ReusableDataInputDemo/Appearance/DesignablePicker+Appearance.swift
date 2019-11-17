@@ -11,11 +11,11 @@ import ReusableDataInput
 
 public extension DesignablePicker
 {
-    public class func setupAppearance(forPicker picker: DesignablePicker)
+    class func setupAppearance(forPicker picker: DesignablePicker)
     {
         DesignablePicker.setupAppearance(forInputView: picker)
         
-        picker.toolbarBackgroundColor = .backgroundLight
+        picker.toolbarBackgroundColor = UIColor.InputView.background
         picker.pickerColor = .brand
         picker.pickerTextColor = .textPrimaryDark
         

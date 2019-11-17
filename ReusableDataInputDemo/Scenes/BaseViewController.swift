@@ -130,7 +130,7 @@ extension BaseViewController: UIGestureRecognizerDelegate
 {
     public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool
     {
-        print("[\(type(of: self)) \(#function)]")
+//        print("[\(type(of: self)) \(#function)]")
         // some button touched - do nothing
         if touch.view is UIButton {
             return true
