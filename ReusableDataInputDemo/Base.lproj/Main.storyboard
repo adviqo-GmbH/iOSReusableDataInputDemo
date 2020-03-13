@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LfA-ki-gTT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LfA-ki-gTT">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -160,6 +160,7 @@
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="aff-y8-VBZ"/>
                         <segue destination="Q39-6H-gkd" kind="relationship" relationship="viewControllers" id="hKo-yF-ojq"/>
+                        <segue destination="i5x-aj-dSN" kind="relationship" relationship="viewControllers" id="LNF-Hq-H9l"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wcN-3M-Cyj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -501,6 +502,155 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1636" y="272"/>
+        </scene>
+        <!--Country & phone-->
+        <scene sceneID="sNs-NB-c4F">
+            <objects>
+                <viewController storyboardIdentifier="CountryPickerDemoViewController" id="i5x-aj-dSN" customClass="CountryPickerDemoViewController" customModule="ReusableDataInputDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AOE-JC-Lnd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bDQ-zY-eBA" userLabel="scrollView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="CmX-FO-aEa">
+                                        <rect key="frame" x="8" y="16" width="359" height="276.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country picker example" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cEO-PI-abI" userLabel="titleLabel">
+                                                <rect key="frame" x="0.0" y="0.0" width="359" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ayw-JU-aNK" userLabel="containerView">
+                                                <rect key="frame" x="0.0" y="28.5" width="359" height="124"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vUX-2s-Mfp">
+                                                        <rect key="frame" x="8" y="8" width="343" height="108"/>
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U6l-ze-quJ" userLabel="countryPicker" customClass="DesignableCountryPicker" customModule="ReusableDataInput">
+                                                                <rect key="frame" x="0.0" y="0.0" width="343" height="50"/>
+                                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="50" placeholder="YES" id="rp4-io-F36"/>
+                                                                </constraints>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lxn-Pv-aAH" userLabel="phoneNumberInput" customClass="DesignablePhoneNumberInput" customModule="ReusableDataInput">
+                                                                <rect key="frame" x="0.0" y="58" width="343" height="50"/>
+                                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="50" placeholder="YES" id="hBw-SB-NNv"/>
+                                                                </constraints>
+                                                            </view>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="vUX-2s-Mfp" secondAttribute="bottom" constant="8" id="BfC-0G-eKL"/>
+                                                    <constraint firstItem="vUX-2s-Mfp" firstAttribute="leading" secondItem="Ayw-JU-aNK" secondAttribute="leading" constant="8" id="E0Q-0i-bGz"/>
+                                                    <constraint firstAttribute="trailing" secondItem="vUX-2s-Mfp" secondAttribute="trailing" constant="8" id="X8Z-Ju-4ek"/>
+                                                    <constraint firstItem="vUX-2s-Mfp" firstAttribute="top" secondItem="Ayw-JU-aNK" secondAttribute="top" constant="8" id="mbK-cD-1pJ"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4uv-Zr-Ami" userLabel="buttonsView">
+                                                <rect key="frame" x="0.0" y="160.5" width="359" height="116"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="UJg-2o-zUt">
+                                                        <rect key="frame" x="0.0" y="8" width="359" height="108"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qzS-FJ-MdT" userLabel="validateButton">
+                                                                <rect key="frame" x="0.0" y="0.0" width="359" height="50"/>
+                                                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="50" id="Bhk-mC-kfV"/>
+                                                                </constraints>
+                                                                <state key="normal" title="Validate">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="validateAction:" destination="i5x-aj-dSN" eventType="touchUpInside" id="A1K-Kb-SXN"/>
+                                                                </connections>
+                                                            </button>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="phw-Zs-v5x">
+                                                                <rect key="frame" x="0.0" y="58" width="359" height="50"/>
+                                                                <subviews>
+                                                                    <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZGQ-wm-B4I" userLabel="clearButton">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="175.5" height="50"/>
+                                                                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="50" id="l9p-uu-O0S"/>
+                                                                        </constraints>
+                                                                        <state key="normal" title="Clear">
+                                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                        </state>
+                                                                        <connections>
+                                                                            <action selector="clearAction:" destination="i5x-aj-dSN" eventType="touchUpInside" id="2E0-kJ-k1X"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                    <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rJj-kh-lJG" userLabel="setValueButton">
+                                                                        <rect key="frame" x="183.5" y="0.0" width="175.5" height="50"/>
+                                                                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="50" id="2Iq-fM-Xaq"/>
+                                                                        </constraints>
+                                                                        <state key="normal" title="Set value">
+                                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                        </state>
+                                                                        <connections>
+                                                                            <action selector="setValueAction:" destination="i5x-aj-dSN" eventType="touchUpInside" id="00e-E9-5mJ"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                </subviews>
+                                                            </stackView>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="UJg-2o-zUt" firstAttribute="top" secondItem="4uv-Zr-Ami" secondAttribute="top" constant="8" id="7c1-TV-n4h"/>
+                                                    <constraint firstAttribute="trailing" secondItem="UJg-2o-zUt" secondAttribute="trailing" id="mm2-KH-KPc"/>
+                                                    <constraint firstItem="UJg-2o-zUt" firstAttribute="leading" secondItem="4uv-Zr-Ami" secondAttribute="leading" id="nwE-bu-6xg"/>
+                                                    <constraint firstAttribute="bottom" secondItem="UJg-2o-zUt" secondAttribute="bottom" id="odn-2d-OHN"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="CmX-FO-aEa" firstAttribute="top" secondItem="bDQ-zY-eBA" secondAttribute="top" constant="16" id="7MO-ki-4cG"/>
+                                    <constraint firstAttribute="trailing" secondItem="CmX-FO-aEa" secondAttribute="trailing" constant="8" id="KM7-B0-0vP"/>
+                                    <constraint firstAttribute="bottom" secondItem="CmX-FO-aEa" secondAttribute="bottom" id="Ls9-4g-cU5"/>
+                                    <constraint firstItem="CmX-FO-aEa" firstAttribute="leading" secondItem="bDQ-zY-eBA" secondAttribute="leading" constant="8" id="pfa-Mj-SzP"/>
+                                    <constraint firstItem="CmX-FO-aEa" firstAttribute="width" secondItem="bDQ-zY-eBA" secondAttribute="width" constant="-16" id="wyN-CL-bh1"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="bDQ-zY-eBA" firstAttribute="bottom" secondItem="CIA-gJ-wux" secondAttribute="bottom" id="BlQ-Jt-OHh"/>
+                            <constraint firstItem="CIA-gJ-wux" firstAttribute="top" secondItem="bDQ-zY-eBA" secondAttribute="top" id="NL6-Nl-6bV"/>
+                            <constraint firstItem="bDQ-zY-eBA" firstAttribute="leading" secondItem="CIA-gJ-wux" secondAttribute="leading" id="XgZ-JI-PQb"/>
+                            <constraint firstItem="CIA-gJ-wux" firstAttribute="trailing" secondItem="bDQ-zY-eBA" secondAttribute="trailing" id="Yui-ZQ-cyN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="CIA-gJ-wux"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Country &amp; phone" id="Ty9-8m-vAj"/>
+                    <connections>
+                        <outlet property="countryPicker" destination="U6l-ze-quJ" id="bdX-l0-QDh"/>
+                        <outlet property="phoneNumberInput" destination="lxn-Pv-aAH" id="aIX-ty-2Vq"/>
+                        <outletCollection property="buttons" destination="qzS-FJ-MdT" collectionClass="NSMutableArray" id="IUO-C2-m0m"/>
+                        <outletCollection property="buttons" destination="ZGQ-wm-B4I" collectionClass="NSMutableArray" id="H1T-M8-WuJ"/>
+                        <outletCollection property="buttons" destination="rJj-kh-lJG" collectionClass="NSMutableArray" id="ggG-uR-6Qv"/>
+                        <outletCollection property="containers" destination="Ayw-JU-aNK" collectionClass="NSMutableArray" id="cI8-GR-37w"/>
+                        <outletCollection property="labels" destination="cEO-PI-abI" collectionClass="NSMutableArray" id="L1X-8l-17K"/>
+                        <outletCollection property="inputViewCollection" destination="U6l-ze-quJ" collectionClass="NSMutableArray" id="sCz-oL-DAi"/>
+                        <outletCollection property="inputViewCollection" destination="lxn-Pv-aAH" collectionClass="NSMutableArray" id="wtK-pu-qMP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UN6-lC-o1h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2538" y="1646"/>
         </scene>
     </scenes>
     <resources>

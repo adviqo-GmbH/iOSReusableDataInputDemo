@@ -87,7 +87,7 @@ extension TextViewDemoViewController
 {
     private func setupViewsOnLoad()
     {
-        self.title = "Text View"
+//        self.title = "Text View"
         self.view.backgroundColor = .background
         
         // buttons

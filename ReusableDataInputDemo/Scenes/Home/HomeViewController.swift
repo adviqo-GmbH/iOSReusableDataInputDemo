@@ -331,7 +331,7 @@ extension HomeViewController
 {
     private func setupViewsOnLoad()
     {
-        self.title = "Home"
+//        self.title = "Home"
         self.view.backgroundColor = .background
         
         // buttons
